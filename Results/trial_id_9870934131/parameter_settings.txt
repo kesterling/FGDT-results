@@ -1,0 +1,13 @@
+Trial ID number: 9870934131
+Models = ['gemini-2.0-flash-001', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-120b']
+Covariates = ['model', 'gender', 'education', 'politics', 'pgreen']
+Topic = the adoption of Nuclear Power. 
+Standpoint Options = ['implement rapid expansion of and investment in nuclear power', 'maintain the current nuclear energy operations without change', 'phase out existing nuclear plants and halt new construction', 'prioritize researching improved implementations of nuclear power']
+Background = To help you choose an option, please know that according to PEW Research Center, 
+    59 percent of US residents favor expanding nuclear power. 73 percent of men 
+    favor expanding it while only 44 percent of women favor expanding it. 
+    69 percent of Republicans favor expanding compared to 52 percent of Democrats. 
+    Environmentalists have mixed opinions, where some favor expanding it because 
+    nuclear has a low-carbon footprint, while others are concerned about the risks of nuclear waste disposal.
+Sample Size = 6
+Number of Experimental Runs = 50

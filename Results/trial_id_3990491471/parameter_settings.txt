@@ -1,0 +1,12 @@
+Trial ID number: 3990491471
+Models = ['gemini-3-flash-preview', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-120b']
+Covariates = ['model', 'gender', 'education', 'politics', 'race', 'pneedforcognition', 'pvc']
+Topic = the size of the U.S. House of Representatives. 
+Standpoint Options = ['increase the size of the U.S. House of Representatives by adding more seats', 'keep the size of the U.S. House of Representatives the same as it is now']
+Background = To help you choose an option, please know that 
+    expanding the size of the House will reduce the number of constituents in each district, 
+    enabling representatives to better connect with their district residents. However, 
+    adding new seats to the House would increase the cost of government 
+    and potentially make Congress more unwieldy.
+Sample Size = 60
+Number of Experimental Runs = 20
