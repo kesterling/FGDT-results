@@ -1,2 +1,22 @@
-# FGDT results
-Results from the FGDT paper
+# Focus Group Digital Twins Simulation Reproduction Repository
+
+This repository provides the data and code to reproduce the results in the paper, Esterling, Kevin M., Ben Treves, Kelton Adey and Euchan Jang. (2026) "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction: With an Application to Focus Group Design," paper presented at the Annual Meeting of the Western Political Science Association, April 2, 2026.
+
+If you have any questions about running this code, please email Kevin Esterling <kevin.esterling@ucr.edu>. 
+
+## Instructions
+
+To reproduce the figures in the paper, follow these simple steps:
+
+1. Download this repository as a zip file and unpack.
+2. Open the file FGDT_figure_generator.R in an IDE such as RStudio
+3. IMPORTANT: Use your GUI to set the IDE working directory to the "Results" folder
+4. Run the R file. You might need to install the required packages
+
+Note: if you do not set your IDE working directory to the Results folder, you will receive an error.
+
+## Listing of files and folders
+
+- "FGDT_figure_generator.R" is the code that generates the figures
+- "Results" is the folder that stores the data
+- "figures" is the author generated figures that appear in the paper.
