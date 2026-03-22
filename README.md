@@ -1,6 +1,6 @@
 # Focus Group Digital Twins Simulation Reproduction Repository
 
-This repository provides the data and code to reproduce the results in the paper, Esterling, Kevin M., Ben Treves, Kelton Adey and Euchan Jang. (2026) "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction: With an Application to Focus Group Design," paper presented at the Annual Meeting of the Western Political Science Association, April 2, 2026.
+This repository provides the data and code to reproduce the results in the paper, Esterling, Kevin M., Ben Treves, Kelton Adey and Euchan Jang. (2026) "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction: With an Application to Focus Group Design," paper presented at the Annual Meeting of the Western Political Science Association, April 2, 2026. The paper is [included in this repository](https://github.com/kesterling/FGDT-results/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf).
 
 If you have any questions about running this code, please email Kevin Esterling <kevin.esterling@ucr.edu>. 
 
