@@ -1,0 +1,9 @@
+**Unstructured Group Design (open-ended discussion only)**
+Trial ID number: 5897463167
+Models = ['gemini-3-flash-preview', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-120b']
+Covariates = ['model', 'gender', 'education', 'politics', 'pgreen']
+Topic = the adoption of Nuclear Power. 
+Background = To help you share your view, please know that according to the PEW Research Center, 59 percent of US residents favor expanding nuclear power. 73 percent of men favor expanding it while only 44 percent of women favor expanding it. 69 percent of Republicans favor expanding compared to 52 percent of Democrats. Environmentalists have mixed opinions, where some favor expanding it because nuclear has a low-carbon footprint, while others are concerned about the risks of nuclear waste disposal.
+Sample Size = 6
+Stratification = False
+Number of Experimental Runs = 50

@@ -1,0 +1,10 @@
+**Structured Group Design**
+Trial ID number: 8323757419
+Models = ['gemini-3-flash-preview', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-120b']
+Covariates = ['model', 'gender', 'education', 'politics', 'pgreen']
+Topic = the adoption of Nuclear Power. 
+Standpoint Options = ['implement rapid expansion of and investment in nuclear power', 'maintain the current nuclear energy operations without change', 'phase out existing nuclear plants and halt new construction', 'prioritize researching improved implementations of nuclear power']
+Background = To help you choose an option, please know that according to PEW Research Center, about half of US residents favor expanding nuclear power, while the other half prefer to maintain operations without change or to phase it out. Most men favor expanding it while most women women prefer phasing it out or keeping it the same. Republicans are more likelty to favor expanding compared Democrats. Enviornmentalists have mixed opinions, where some favor expanding it because nuclear has a low-carbon footprint, while others favor contracting it because they are concerned about the risks of nuclear waste disposal.
+Sample Size = 600
+Stratification = False
+Number of Experimental Runs = 20
