@@ -254,7 +254,7 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,2], fill=Design)) +
   ) +
   theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
 
-
+##########################################################################################
 
 ## Figure 2: Nuclear Power, three options
 
@@ -435,7 +435,7 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,2], fill=Design)) +
 
 
 
-
+##########################################################################################
 
 
 ## Figure 3: Gun Control, including stratification design
@@ -615,76 +615,9 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,2], fill=Design)) +
   theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
 
 
+##########################################################################################
 
-## Figure 4: Bias Audit, simulated data nuclear power
-
-
-# similarities in project id 8323757419
-
-setwd(paste0(project_dir,"/trial_id_8323757419"))
-
-
-data <- read.csv("ResponsesDF_similarities_n0.csv")
-
-data <-
-  data %>%
-  mutate(maxsim = pmax(similarityColumn1, similarityColumn2, similarityColumn3, similarityColumn4, similarityColumn5, na.rm = TRUE),
-         college = ifelse(education == "College graduate/some postgrad" | education == "Postgraduate", yes = 1, no = 0),
-         female = ifelse(gender == "Female", yes = 1, no = 0),
-         conservative = ifelse(politics == "Conservative" | politics == "Very conservative", yes = 1, no = 0),
-         openai = ifelse(model =="openai/gpt-oss-120b", yes = 1, no = 0)
-  )
-
-
-
-## Main figure
-
-figdata1a<-cbind(data$maxsim[data$female==0],data$openai[data$female==0])
-figdata1b<-cbind(data$maxsim[data$female==1],data$openai[data$female==1])
-figdata2a<-cbind(data$maxsim[data$college==0],data$openai[data$college==0])
-figdata2b<-cbind(data$maxsim[data$college==1],data$openai[data$college==1])
-
-
-figdata1a<-cbind(figdata1a, rep(1, length(figdata1a)))
-figdata1b<-cbind(figdata1b, rep(2, length(figdata1b)))
-figdata2a<-cbind(figdata2a, rep(3, length(figdata2a)))
-figdata2b<-cbind(figdata2b, rep(4, length(figdata2b)))
-
-figdata<-rbind(figdata1a, figdata1b, figdata2a, figdata2b)
-
-figdata<-as.data.frame(figdata)
-
-
-figdata[,3] <- factor(
-  figdata[,3],
-  levels = c("1", "2", "3", "4"),
-  labels = c("Male", "Female", "NotCollege", "College")
-)
-
-figdata[,2]<- factor(
-  figdata[,2],
-  levels = c("0", "1"),
-  labels = c("NotChatGPT", "ChatGPT")
-)
-
-LLM<-figdata[,2]
-
-theme_set(theme_ridges())
-
-ggplot(figdata, aes(x=figdata[,1], y=figdata[,3], fill=LLM)) +
-  geom_density_ridges(alpha=0.5, show.legend = TRUE) +
-  scale_fill_brewer(palette = 5) +
-  labs(
-    title = 'Bias Audit - Simulated Data on Nuclear Power',
-    #subtitle = 'Cohen\'s D',
-    x = "Cosine Similarity Distribution"
-  ) +
-  theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
-
-
-
-
-## Figure 5: Bias Audit, human data house of representatives
+## Figure 4: Bias Audit, human data House of Representatives
 
 # Before running this: once you run summarizationSimilarities_scmc.py, open the 
 # summarizationSimilarities_SCMC.csv file to manually create the Similaritymax3
@@ -760,9 +693,9 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,3], fill=Position)) +
 
 
 
+##########################################################################################
 
-
-## Figure 6: Structured Group Simulated - house of representatives
+## Figure A1: Structured Group Simulated - House of Representatives
 
 
 # N=600: 8847511010
@@ -914,9 +847,9 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,2], fill=Design)) +
   theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
 
 
+##########################################################################################
 
-
-## Figure 7: Bias Audit, simulated house of representatives
+## Figure A2: Bias Audit, simulated House of Representatives
 
 
 setwd(paste0(project_dir,"/trial_id_8847511010"))
@@ -980,6 +913,78 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,3], fill=Position)) +
 
 
 
+
+
+##########################################################################################
+
+## Figure A3: Bias Audit, simulated data nuclear power
+
+
+# similarities in project id 8323757419
+
+setwd(paste0(project_dir,"/trial_id_8323757419"))
+
+
+data <- read.csv("ResponsesDF_similarities_n0.csv")
+
+data <-
+  data %>%
+  mutate(maxsim = pmax(similarityColumn1, similarityColumn2, similarityColumn3, similarityColumn4, similarityColumn5, na.rm = TRUE),
+         college = ifelse(education == "College graduate/some postgrad" | education == "Postgraduate", yes = 1, no = 0),
+         female = ifelse(gender == "Female", yes = 1, no = 0),
+         conservative = ifelse(politics == "Conservative" | politics == "Very conservative", yes = 1, no = 0),
+         openai = ifelse(model =="openai/gpt-oss-120b", yes = 1, no = 0)
+  )
+
+
+
+## Main figure
+
+figdata1a<-cbind(data$maxsim[data$female==0],data$openai[data$female==0])
+figdata1b<-cbind(data$maxsim[data$female==1],data$openai[data$female==1])
+figdata2a<-cbind(data$maxsim[data$college==0],data$openai[data$college==0])
+figdata2b<-cbind(data$maxsim[data$college==1],data$openai[data$college==1])
+
+
+figdata1a<-cbind(figdata1a, rep(1, length(figdata1a)))
+figdata1b<-cbind(figdata1b, rep(2, length(figdata1b)))
+figdata2a<-cbind(figdata2a, rep(3, length(figdata2a)))
+figdata2b<-cbind(figdata2b, rep(4, length(figdata2b)))
+
+figdata<-rbind(figdata1a, figdata1b, figdata2a, figdata2b)
+
+figdata<-as.data.frame(figdata)
+
+
+figdata[,3] <- factor(
+  figdata[,3],
+  levels = c("1", "2", "3", "4"),
+  labels = c("Male", "Female", "NotCollege", "College")
+)
+
+figdata[,2]<- factor(
+  figdata[,2],
+  levels = c("0", "1"),
+  labels = c("NotChatGPT", "ChatGPT")
+)
+
+LLM<-figdata[,2]
+
+theme_set(theme_ridges())
+
+ggplot(figdata, aes(x=figdata[,1], y=figdata[,3], fill=LLM)) +
+  geom_density_ridges(alpha=0.5, show.legend = TRUE) +
+  scale_fill_brewer(palette = 5) +
+  labs(
+    title = 'Bias Audit - Simulated Data on Nuclear Power',
+    #subtitle = 'Cohen\'s D',
+    x = "Cosine Similarity Distribution"
+  ) +
+  theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
+
+
+##########################################################################################
+
 ## Unstructured:
 
 # 60 simple randomization: 4841071884
@@ -989,225 +994,7 @@ ggplot(figdata, aes(x=figdata[,1], y=figdata[,3], fill=Position)) +
 
 # No figures for the unstructured design...
 
+##########################################################################################
 
-
-## Figure A1: Nuclear Power, four option extreme skew -- not used!
-
-# N=600: 9649295679
-# N=60: 5830640642
-# N=6: 5569406254
-
-# use the following code if four standpoint options 
-
-# trial id 9649295679 is 600 participant, 4 option on nuclear power
-setwd(paste0(project_dir,"/trial_id_9649295679"))
-
-l1<-as.matrix(read.csv("similarityMatrix_standpoint0.csv", header = FALSE)) # read in large N response 1 matrix
-l2<-as.matrix(read.csv("similarityMatrix_standpoint1.csv", header = FALSE)) # read in large N response 2 matrix
-l3<-as.matrix(read.csv("similarityMatrix_standpoint2.csv", header = FALSE)) # read in large N response 3 matrix
-l4<-as.matrix(read.csv("similarityMatrix_standpoint3.csv", header = FALSE)) # read in large N response 4 matrix
-
-# trial id 5830640642 is 60 participant
-setwd(paste0(project_dir,"/trial_id_5830640642"))
-
-m1<-as.matrix(read.csv("similarityMatrix_standpoint0.csv", header = FALSE)) # read in medium N response 1 matrix
-m2<-as.matrix(read.csv("similarityMatrix_standpoint1.csv", header = FALSE)) # read in medium N response 2 matrix
-m3<-as.matrix(read.csv("similarityMatrix_standpoint2.csv", header = FALSE)) # read in medium N response 3 matrix
-m4<-as.matrix(read.csv("similarityMatrix_standpoint3.csv", header = FALSE)) # read in medium N response 4 matrix
-
-# trial id 5569406254 is 6 participant
-setwd(paste0(project_dir,"/trial_id_5569406254"))
-
-s1<-as.matrix(read.csv("similarityMatrix_standpoint0.csv", header = FALSE)) # read in small N response 1 matrix
-s2<-as.matrix(read.csv("similarityMatrix_standpoint1.csv", header = FALSE)) # read in small N response 2 matrix
-s3<-as.matrix(read.csv("similarityMatrix_standpoint2.csv", header = FALSE)) # read in small N response 3 matrix
-s4<-as.matrix(read.csv("similarityMatrix_standpoint3.csv", header = FALSE)) # read in small N response 4 matrix
-
-l1vec<-l1[lower.tri(l1)]
-l2vec<-l2[lower.tri(l2)]
-l3vec<-l3[lower.tri(l3)]
-l4vec<-l4[lower.tri(l4)]
-m1vec<-m1[lower.tri(m1)]
-m2vec<-m2[lower.tri(m2)]
-m3vec<-m3[lower.tri(m3)]
-m4vec<-m4[lower.tri(m4)]
-s1vec<-s1[lower.tri(s1)]
-s2vec<-s2[lower.tri(s2)]
-s3vec<-s3[lower.tri(s3)]
-s4vec<-s4[lower.tri(s4)]
-
-l1vec_valid<-l1vec
-l2vec_valid<-l2vec
-l3vec_valid<-l3vec
-l4vec_valid<-l4vec
-m1vec_valid<-m1vec
-m2vec_valid<-m2vec
-m3vec_valid<-m3vec
-m4vec_valid<-m4vec
-s1vec_valid<-s1vec
-s2vec_valid<-s2vec
-s3vec_valid<-s3vec
-s4vec_valid<-s4vec
-
-l1vec_valid[l1vec_valid==1]<-0
-l2vec_valid[l2vec_valid==1]<-0
-l3vec_valid[l3vec_valid==1]<-0
-l4vec_valid[l4vec_valid==1]<-0
-m1vec_valid[m1vec_valid==1]<-0
-m2vec_valid[m2vec_valid==1]<-0
-m3vec_valid[m3vec_valid==1]<-0
-m4vec_valid[m4vec_valid==1]<-0
-s1vec_valid[s1vec_valid==1]<-0
-s2vec_valid[s2vec_valid==1]<-0
-s3vec_valid[s3vec_valid==1]<-0
-s4vec_valid[s4vec_valid==1]<-0
-
-
-# rate that at least one topic not discussed, in one or both runs
-# length(l1vec_valid[l1vec_valid<=0.1])/length(l1vec_valid)
-# length(l2vec_valid[l2vec_valid<=0.1])/length(l2vec_valid)
-# length(l3vec_valid[l3vec_valid<=0.1])/length(l3vec_valid)
-# length(l4vec_valid[l4vec_valid<=0.1])/length(l4vec_valid)
-# length(m1vec_valid[m1vec_valid<=0.1])/length(m1vec_valid)
-# length(m2vec_valid[m2vec_valid<=0.1])/length(m2vec_valid)
-# length(m3vec_valid[m3vec_valid<=0.1])/length(m3vec_valid)
-# length(m4vec_valid[m4vec_valid<=0.1])/length(m4vec_valid)
-# length(s1vec_valid[s1vec_valid<=0.1])/length(s1vec_valid)
-# length(s2vec_valid[s2vec_valid<=0.1])/length(s2vec_valid)
-# length(s3vec_valid[s3vec_valid<=0.1])/length(s3vec_valid)
-# length(s4vec_valid[s4vec_valid<=0.1])/length(s4vec_valid)
-
-
-# make all the same length for creating the figure
-l1vec_valid<-as.vector(sample(l1vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-l2vec_valid<-as.vector(sample(l2vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-l3vec_valid<-as.vector(sample(l3vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-l4vec_valid<-as.vector(sample(l4vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-m1vec_valid<-as.vector(sample(m1vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-m2vec_valid<-as.vector(sample(m2vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-m3vec_valid<-as.vector(sample(m3vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-m4vec_valid<-as.vector(sample(m4vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-s1vec_valid<-as.vector(sample(s1vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-s2vec_valid<-as.vector(sample(s2vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-s3vec_valid<-as.vector(sample(s3vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-s4vec_valid<-as.vector(sample(s4vec_valid, length(s1vec_valid), replace=TRUE)) # make the same length for figure
-
-
-
-## Main figure
-
-nrows<-length(s1vec_valid)
-ncols<-4 # this is the number of rows in the figure
-figdata1<-as.data.frame(matrix(rep(NA, nrows*ncols*2), nrow = nrows*ncols, ncol=2))
-
-for (j in 1:ncols) {
-  for (i in 1:nrows) {
-    if (j==1) {
-      figdata1[i+3*nrows,1] <- s4vec_valid[i]
-      figdata1[i+3*nrows,2] <- j}
-    if (j==2) {
-      figdata1[i+2*nrows,1] <- s3vec_valid[i]
-      figdata1[i+2*nrows,2] <- j}
-    if (j==3) {
-      figdata1[i+1*nrows,1] <- s2vec_valid[i]
-      figdata1[i+1*nrows,2] <- j}
-    if (j==4) {
-      figdata1[i,1] <- s1vec_valid[i]
-      figdata1[i,2] <- j}
-  }
-}
-
-figdata1[,2] <- factor(
-  figdata1[,2],
-  levels = c("1", "2", "3", "4"),
-  labels = c("Research", "Phase Out", "Maintain", "Expand")
-)
-
-figdata1$Design <- rep(1,length(figdata1[,1]))
-
-
-nrows<-length(s1vec)
-ncols<-4 # this is the number of rows in the figure
-figdata2<-as.data.frame(matrix(rep(NA, nrows*ncols*2), nrow = nrows*ncols, ncol=2))
-
-for (j in 1:ncols) {
-  for (i in 1:nrows) {
-    if (j==1) {
-      figdata2[i+3*nrows,1] <- m4vec_valid[i]
-      figdata2[i+3*nrows,2] <- j}
-    if (j==2) {
-      figdata2[i+2*nrows,1] <- m3vec_valid[i]
-      figdata2[i+2*nrows,2] <- j}
-    if (j==3) {
-      figdata2[i+1*nrows,1] <- m2vec_valid[i]
-      figdata2[i+1*nrows,2] <- j}
-    if (j==4) {
-      figdata2[i,1] <- m1vec_valid[i]
-      figdata2[i,2] <- j}
-  }
-}
-
-figdata2[,2] <- factor(
-  figdata2[,2],
-  levels = c("1", "2", "3", "4"),
-  labels = c("Research", "Phase Out", "Maintain", "Expand")
-)
-
-figdata2$Design <- rep(2,length(figdata2[,1]))
-
-
-nrows<-length(s1vec)
-ncols<-4 # this is the number of rows in the figure
-figdata3<-as.data.frame(matrix(rep(NA, nrows*ncols*2), nrow = nrows*ncols, ncol=2))
-
-for (j in 1:ncols) {
-  for (i in 1:nrows) {
-    if (j==1) {
-      figdata3[i+3*nrows,1] <- l4vec_valid[i]
-      figdata3[i+3*nrows,2] <- j}
-    if (j==2) {
-      figdata3[i+2*nrows,1] <- l3vec_valid[i]
-      figdata3[i+2*nrows,2] <- j}
-    if (j==3) {
-      figdata3[i+1*nrows,1] <- l2vec_valid[i]
-      figdata3[i+1*nrows,2] <- j}
-    if (j==4) {
-      figdata3[i,1] <- l1vec_valid[i]
-      figdata3[i,2] <- j}
-  }
-}
-
-figdata3[,2] <- factor(
-  figdata3[,2],
-  levels = c("1", "2", "3", "4"),
-  labels = c("Research", "Phase Out", "Maintain", "Expand")
-)
-
-figdata3$Design <- rep(3,length(figdata2[,1]))
-
-
-
-figdata <- rbind(figdata3, figdata2, figdata1)
-
-figdata[,3] <- factor(
-  figdata[,3],
-  levels = c("1", "2", "3"),
-  labels = c("N=6", "N=60", "N=600")
-)
-
-
-theme_set(theme_ridges())
-
-
-ggplot(figdata, aes(x=figdata[,1], y=figdata[,2], fill=Design)) +
-  geom_density_ridges(alpha=0.5) +
-  scale_fill_brewer(palette = 5) +
-  labs(
-    title = 'Structured Group Simulation Results - Extreme Skew',
-    #subtitle = 'Cohen\'s D',
-    x = "Cosine Similarity Distribution"
-  ) +
-  theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank())
-
-
+# End
 

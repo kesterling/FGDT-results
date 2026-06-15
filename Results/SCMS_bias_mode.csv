@@ -1,0 +1,13 @@
+User ID,Ethnicity,Gender,Education,Party,Topic,In Support,favor,Similarity1,Similarity2,Similarity3,Similarity4,Similarity5,Similarity6,Similarity7,Similarity8,Similarity9,Similaritymax3,Similaritymax5,Response
+100000109,Black,Woman,HS or Less,R,Increasing size of House of Representatives,FALSE,0,0.056,0.1393,0.0813,-0.007,0.0207,0.05,0.0421,0.0451,0.0441,0.1393,0.05,Not sure why i feel that way.
+100000328,Asian,Woman,HS or Less,D,Increasing size of House of Representatives,FALSE,0,0.039,0.0769,0.0648,0.11,0.051,0.0282,0.0045,0.023,0.0467,0.11,0.051,Don't know
+300000747,All Other,Man,HS or Less,I,Increasing size of House of Representatives,FALSE,0,-0.046,0.0302,-0.0555,0.1243,0.0195,0.0554,0.0679,0.0193,0.0169,0.1243,0.0679,Not sure just don't seem like a good
+200001463,All Other,Woman,Some College,I,Increasing size of House of Representatives,FALSE,0,0.0803,0.1756,0.1271,-0.0311,0.0732,0.0549,0.0657,0.0778,-0.014,0.1756,0.0778,Too many cooks spoil the soup
+100000756,Asian,Woman,Post-Grad,I,Increasing size of House of Representatives,FALSE,0,0.0024,0.0661,0.0523,0.1245,-0.0313,0.0867,0.0038,0.0074,0.0867,0.1245,0.0867,It's not right
+300001256,Black,Woman,Some College,D,Increasing size of House of Representatives,FALSE,0,0.0384,0.0637,0.0701,0.0658,0.0565,0.0973,-0.0023,-0.0057,0.0805,0.0701,0.0973,It's fine the way it is
+100000865,Hispanic,Woman,Some College,R,Increasing size of House of Representatives,FALSE,0,0.1112,0.1321,0.0581,0.1126,0.0614,0.1148,0.0038,0.0797,0.0573,0.1321,0.1148,It's a power grab
+300001790,Black,Woman,HS or Less,D,Increasing size of House of Representatives,FALSE,0,0.1156,0.0591,0.0739,0.186,0.0048,0.1275,0.0282,0.03,0.0715,0.186,0.1275,It's not good
+300000120,Hispanic,Woman,HS or Less,D,Increasing size of House of Representatives,FALSE,0,0.0336,0.093,0.1698,-0.0782,0.1282,-0.0408,-0.0357,-0.0465,-0.0987,0.1698,0.1282,Yo spend to much money sometimes for nothing
+200005608,All Other,Woman,4-Year,R,Increasing size of House of Representatives,FALSE,0,0.1193,0.0914,0.1422,0.1074,0.0532,-0.0172,0.1714,0.0775,0.1076,0.1422,0.1714,Not necessary
+,,,,,,,,,,,,,,,,,,,
+These are the non-white observations that had max5 similarity below 0.2,,,,,,,,,,,,,,,,,,,
