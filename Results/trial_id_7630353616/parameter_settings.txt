@@ -1,0 +1,13 @@
+**Structured Group Design**
+Trial ID number: 7630353616
+Models = ['gemini-3-flash-preview', 'llama-3.1-8b-instant', 'openai/gpt-oss-120b']
+Covariates = ['model', 'gender', 'education', 'politics']
+Topic = gun control in the U.S. 
+Standpoint Options = ['gun control laws should be more strict', 'gun control laws are about right', 'gun control laws should be less strict']
+Background = To help you choose an option, please know that according to the PEW Research Center, 82 percent of U.S. conservatives believe that gun control laws should be the same or less strict while 92 percent of U.S. liberals favor making gun control laws more strict. That is, liberals favor making gun control laws more strict and conservatives to keep the laws the same or make them less strict.
+Sample Size = 6
+Stratification = True
+Stratification Covariate = politics
+Stratification Cell A = ['Liberal', 'Very liberal']
+Stratification Cell B = ['Conservative', 'Very conservative']
+Number of Experimental Runs = 50
